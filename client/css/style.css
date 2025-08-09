@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'Hillside';  
+  src: url('fonts/Hillside.otf') format('.otf'),
+       url('fonts/Hillside.otf') format('.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    margin: 0 0 0 0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 10px 100px
+}
+
+.pageTitle {
+    margin-left: 5rem;
+    cursor: pointer;
+    font-size: 2.3rem;
+    font-family: 'Hillside', sans-serif;
+}
+
+.titlePhrase {
+    display: block;
+    margin-left: 2.5rem;
+    font-size: 1.1rem;
+    color: #454544;
+}
+
+.navOptions {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.navItem {
+    cursor: pointer;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.navButton {
+    margin-left: 3rem;
+    margin-right: 5rem;
+    background-color: #d90f2a;
+    border: none;
+    padding: 1rem;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.navButton:hover {
+    cursor: pointer;
+    background-color: #a31528;
+}
+
+.hero {
+    margin-top: 8vh;
+    padding: 6rem;
+    width: screen;
+    background-color: #ede6df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.heroImage {
+    width: 40vw;
+    animation: float 2.5s ease-in-out infinite alternate;
+}
+
+.heroCaption {
+    font-size: 3.5rem;
+    margin-left: 2rem;
+    color: #454544;
+}
+
+.menu {
+    width: screen;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuCaption {
+    font-size: 1.8rem;
+    color: #454544;
+}
+
+.itemsCaption {
+    font-size: 2.2rem;
+    text-decoration: underline;
+    color: #d90f2a;
+    align-self: center;
+}
+
+.startersCards {
+    display: grid;
+    gap: 100px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.coursesCards {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.startersCard {
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    align-items: center;
+}
+
+.cardImage {
+    width: 15rem;
+}
+
+.cardTitle {
+    color: #454544;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: -0.5rem;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.itemCost {
+    fonst-weight: 1000;
+    font-size: 1.8rem;
+    color: #a31528;
+    position: absolute;
+    bottom: -1rem;
+}
+
+.course {
+    margin-bottom: 10rem;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
