@@ -1,145 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Ugatz</title>
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <nav>
-            <h1 class="pageTitle">Ugatz
-                <span class="titlePhrase">Fine Dine</span>
-            </h1>
-            <ul class="navOptions">
-                <li class="navItem">Home</li>
-                <li class="navItem">About</li>
-                <li class="navItem">Menu</li>
-                <li class="navItem">Contact</li>
-                <button class="navButton">Book a table</button>
-            </ul> 
-        </nav>
-        <div class="loginPanel" id="loginPanel" style="display: none;">
-            <div class="loginSection">
-                <h3 class="loginTitle" id="formTitle" style="font-size: 2rem;">Login</h3>
-                <input id="username" placeholder="Username" style="margin: 1rem; padding: 0.2rem">
-                <input id="password" type="password" placeholder="Password" style="padding: 0.2rem;">
-                <button id="submitBtn" style="padding: 0.2rem 0.5rem; border-radius: 15px; background-color: #d90f2a; border: none; margin-top: 1rem; font-size: 1.2rem;">Submit</button>
-                <p style="margin-top: 1rem;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ugatz</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <h1 class="pageTitle">Ugatz
+            <span class="titlePhrase">Fine Dine</span>
+        </h1>
+        <ul class="navOptions">
+            <li class="navItem">Home</li>
+            <li class="navItem">About</li>
+            <li class="navItem">Menu</li>
+            <li class="navItem">Contact</li>
+            <button class="navButton">Book a table</button>
+        </ul>
+    </nav>
+    <div class="loginPanel" id="loginPanel" style="display: none;">
+        <div class="loginSection">
+            <h3 class="loginTitle" id="formTitle" style="font-size: 2rem;">Login</h3>
+            <input id="username" placeholder="Username" style="margin: 1rem; padding: 0.2rem">
+            <input id="password" type="password" placeholder="Password" style="padding: 0.2rem;">
+            <button id="submitBtn"
+                style="padding: 0.2rem 0.5rem; border-radius: 15px; background-color: #d90f2a; border: none; margin-top: 1rem; font-size: 1.2rem;">Submit</button>
+            <p style="margin-top: 1rem;">
                 <span id="toggleForm" style="color: blue; cursor: pointer;">Don't have an account? Signup</span>
-                </p>
-                <button onclick="closePanel()" style="margin-top: auto; background-color: #aaa; border: none; padding: 0.5rem; border-radius: 8px;">Close</button>
-            </div>
-        </div>        <section class="hero">
-            <img src="images/Hero.png" alt="Pasta Bologense" class="heroImage">
-            <h3 class="heroCaption">
-                Enjoy Your Healthy<br/>Delicious Food
-            </h3>
-        </section>
-        <section class="menu">
-            <h3 class="menuCaption">Our Menu</h3>
-            <div class="starters">
-                <h4 class="itemsCaption"><center>Starters</center></h4>
-                <div class="startersCards">
-                    <div class="startersCard">
-                        <img src="images/gobi.png" alt="goi" class="cardImage">
-                        <span class="cardTitle">Gobi Manchurian</span>
-                        <span class="itemCost">₹70.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/tikka.png" alt="goi" class="cardImage">
-                        <span class="cardTitle">Chicken Tikka</span>
-                        <span class="itemCost">₹80.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/prawns.png" alt="goi" class="cardImage">
-                        <span class="cardTitle">Prawns Fry</span>
-                        <span class="itemCost">₹95.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/lolipop.png" alt="goi" class="cardImage">
-                        <span class="cardTitle">Chicken Lolipop</span>
-                        <span class="itemCost">₹75.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/shamikebab.png" alt="goi" class="cardImage">
-                        <span class="cardTitle">Shami Kebab</span>
-                        <span class="itemCost">₹95.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/fishfingers.png" alt="goi" class="cardImage">
-                        <span class="cardTitle">Fish Fingers</span>
-                        <span class="itemCost">₹70.00</span>
-                    </div>
+            </p>
+            <button onclick="closePanel()"
+                style="margin-top: auto; background-color: #aaa; border: none; padding: 0.5rem; border-radius: 8px;">Close</button>
+        </div>
+    </div>
+    <section class="hero">
+        <img src="images/Hero.png" alt="Pasta Bologense" class="heroImage">
+        <h3 class="heroCaption">
+            Enjoy Your Healthy<br />Delicious Food
+        </h3>
+    </section>
+    <section class="menu">
+        <h3 class="menuCaption">Our Menu</h3>
+        <div class="starters">
+            <h4 class="itemsCaption">
+                <center>Starters</center>
+            </h4>
+            <div class="startersCards">
+                <div class="startersCard">
+                    <img src="images/gobi.png" alt="goi" class="cardImage">
+                    <span class="cardTitle">Gobi Manchurian</span>
+                    <span class="itemCost">₹70.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/tikka.png" alt="goi" class="cardImage">
+                    <span class="cardTitle">Chicken Tikka</span>
+                    <span class="itemCost">₹80.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/prawns.png" alt="goi" class="cardImage">
+                    <span class="cardTitle">Prawns Fry</span>
+                    <span class="itemCost">₹95.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/lolipop.png" alt="goi" class="cardImage">
+                    <span class="cardTitle">Chicken Lolipop</span>
+                    <span class="itemCost">₹75.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/shamikebab.png" alt="goi" class="cardImage">
+                    <span class="cardTitle">Shami Kebab</span>
+                    <span class="itemCost">₹95.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/fishfingers.png" alt="goi" class="cardImage">
+                    <span class="cardTitle">Fish Fingers</span>
+                    <span class="itemCost">₹70.00</span>
                 </div>
             </div>
-            <div class="course">
-                <h4 class="itemsCaption" style="margin-top: 5rem;"><center>Main Course</center></h4>
-                <div class="coursesCards">
-                    <div class="startersCard">
-                        <img src="images/biriyani.png" alt="goi" class="cardImage" style="width: 10rem; margin-bottom: 3rem;">
-                        <span class="cardTitle">Chicken Biryani</span>
-                        <span class="itemCost">₹120.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/friedrice.png" alt="goi" class="cardImage" style="margin-bottom: 2rem;">
-                        <span class="cardTitle">Chicken Fried Rice</span>
-                        <span class="itemCost">₹85.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/butterchicken.png" alt="goi" class="cardImage" style="width: 12rem; margin-bottom: 2rem;">
-                        <span class="cardTitle">Butter Chicken</span>
-                        <span class="itemCost">₹120.00</span>
-                    </div>
-                    <div class="startersCard">
-                        <img src="images/noodles.png" alt="goi" class="cardImage" style="margin-bottom: 2rem;">
-                        <span class="cardTitle">Chicken Noodles</span>
-                        <span class="itemCost">₹85.00</span>
-                    </div>
+        </div>
+        <div class="course">
+            <h4 class="itemsCaption" style="margin-top: 5rem;">
+                <center>Main Course</center>
+            </h4>
+            <div class="coursesCards">
+                <div class="startersCard">
+                    <img src="images/biriyani.png" alt="goi" class="cardImage"
+                        style="width: 10rem; margin-bottom: 3rem;">
+                    <span class="cardTitle">Chicken Biryani</span>
+                    <span class="itemCost">₹120.00</span>
                 </div>
-                <<script>
-                    const API_URL = "http://localhost:5000";
-                    let isLogin = true;
-                    
-                    // Show login/signup when clicking "Book a table"
-                    document.querySelector(".navButton").addEventListener("click", () => {
-                        document.getElementById("loginPanel").style.display = "flex";
+                <div class="startersCard">
+                    <img src="images/friedrice.png" alt="goi" class="cardImage" style="margin-bottom: 2rem;">
+                    <span class="cardTitle">Chicken Fried Rice</span>
+                    <span class="itemCost">₹85.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/butterchicken.png" alt="goi" class="cardImage"
+                        style="width: 12rem; margin-bottom: 2rem;">
+                    <span class="cardTitle">Butter Chicken</span>
+                    <span class="itemCost">₹120.00</span>
+                </div>
+                <div class="startersCard">
+                    <img src="images/noodles.png" alt="goi" class="cardImage" style="margin-bottom: 2rem;">
+                    <span class="cardTitle">Chicken Noodles</span>
+                    <span class="itemCost">₹85.00</span>
+                </div>
+            </div>
+            <script>
+                const API_URL = "http://localhost:5000";
+                let isLogin = true;
+
+                document.querySelector(".navButton").addEventListener("click", () => {
+                    document.getElementById("loginPanel").style.display = "flex";
+                });
+
+                function closePanel() {
+                    document.getElementById("loginPanel").style.display = "none";
+                }
+
+                document.getElementById("toggleForm").addEventListener("click", () => {
+                    isLogin = !isLogin;
+                    document.getElementById("formTitle").innerText = isLogin ? "Login" : "Signup";
+                    document.getElementById("toggleForm").innerText = isLogin
+                        ? "Don't have an account? Signup"
+                        : "Already have an account? Login";
+                });
+
+                document.getElementById("submitBtn").addEventListener("click", async () => {
+                    const username = document.getElementById("username").value;
+                    const password = document.getElementById("password").value;
+
+                    const endpoint = isLogin ? "/login" : "/signup";
+                    let res = await fetch(`${API_URL}${endpoint}`, {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify({username, password})
                     });
-                    
-                    // Close panel
-                    function closePanel() {
-                        document.getElementById("loginPanel").style.display = "none";
+
+                    let data = await res.json();
+                    alert(data.message || data.error);
+
+                    if (data.token) {
+                        localStorage.setItem("token", data.token);
+                        localStorage.setItem("username", data.username);
+                        document.querySelector(".navButton").outerHTML =
+                            `<li class="navItem" style="margin-right: 5rem; background-color: #d90f2a; border-radius: 15px; padding: 1rem; font-weight: bold; color: #fff;">Weclome ${data.username}</li>`;
+                        closePanel();
                     }
-                    
-                    // Toggle between login and signup
-                    document.getElementById("toggleForm").addEventListener("click", () => {
-                        isLogin = !isLogin;
-                        document.getElementById("formTitle").innerText = isLogin ? "Login" : "Signup";
-                        document.getElementById("toggleForm").innerText = isLogin
-                            ? "Don't have an account? Signup"
-                            : "Already have an account? Login";
-                    });
-                    
-                    // Handle submit
-                    document.getElementById("submitBtn").addEventListener("click", async () => {
-                        const username = document.getElementById("username").value;
-                        const password = document.getElementById("password").value;
-                        
-                        const endpoint = isLogin ? "/login" : "/signup";
-                        let res = await fetch(`${API_URL}${endpoint}`, {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ username, password })
-                        });
-                        
-                        let data = await res.json();
-                        alert(data.message || data.error);
-                        
-                        if (data.token) {
-                            localStorage.setItem("token", data.token);
-                            closePanel();
-                        }
-                    });
-                </script>/section>
-    </body>
+                });
+
+                // Keep username after refresh
+                window.onload = () => {
+                    const savedUser = localStorage.getItem("username");
+                    if (savedUser) {
+                        document.querySelector(".navButton").outerHTML =
+                            `<li class="navItem" style="margin-right: 5rem; background-color: #d90f2a; border-radius: 15px; padding: 1rem; font-weight: bold; color: #fff">Welcome, ${savedUser}</li>`;
+                    }
+                };
+            </script>
+</body>
+
 </html>
