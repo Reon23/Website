@@ -18,7 +18,7 @@
             <li class="navItem">About</li>
             <li class="navItem">Menu</li>
             <li class="navItem">Contact</li>
-            <button class="navButton">Book a table</button>
+            <button class="navButton">Login to Book</button>
         </ul>
     </nav>
     <div class="loginPanel" id="loginPanel" style="display: none;">
@@ -33,6 +33,27 @@
             </p>
             <button onclick="closePanel()"
                 style="margin-top: auto; background-color: #aaa; border: none; padding: 0.5rem; border-radius: 8px;">Close</button>
+        </div>
+    </div>
+    <div class="loginPanel" id="bookingPanel" style="display: none;">
+        <div class="loginSection">
+            <h3 class="loginTitle" style="font-size: 2rem;">Book a Slot</h3>
+
+            <input type="date" id="bookingDate" placeholder="Select Date" style="margin: 1rem; padding: 0.2rem;">
+            <input type="number" id="bookingSeats" min="1" placeholder="Seats" style="margin: 1rem; padding: 0.2rem;">
+
+            <button id="bookSubmitBtn"
+                style="padding: 0.2rem 0.5rem; border-radius: 15px; background-color: #d90f2a; border: none; margin-top: 1rem; font-size: 1.2rem; color:white;">
+                Book Now
+            </button>
+
+            <h4 style="margin-top: 1.5rem;">Your Bookings</h4>
+            <ul id="bookingsList" style="list-style:none; padding:0; text-align: left; margin-top: 0.5rem;"></ul>
+
+            <button id="closeBookingPanel"
+                style="margin-top: auto; background-color: #aaa; border: none; padding: 0.5rem; border-radius: 8px;">
+                Close
+            </button>
         </div>
     </div>
     <section class="hero">
@@ -97,8 +118,8 @@
                     <span class="itemCost">₹85.00</span>
                 </div>
                 <div class="startersCard">
-                    <img src="images/butterchicken.png" alt="goi" class="cardImage"
-                        style="width: 12rem; margin-bottom: 2rem;">
+                    <img src="images/butterchicken.png" alt="goi" class="cardImage" <img src="images/butterchicken.png"
+                        alt="goi" class="cardImage" style="width: 12rem; margin-bottom: 2rem;">
                     <span class="cardTitle">Butter Chicken</span>
                     <span class="itemCost">₹120.00</span>
                 </div>
@@ -108,57 +129,124 @@
                     <span class="itemCost">₹85.00</span>
                 </div>
             </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script>
                 const API_URL = "http://localhost:5000";
                 let isLogin = true;
 
-                document.querySelector(".navButton").addEventListener("click", () => {
-                    document.getElementById("loginPanel").style.display = "flex";
+                $(".navButton").on("click", function () {
+                    $("#loginPanel").css("display", "flex");
                 });
 
                 function closePanel() {
-                    document.getElementById("loginPanel").style.display = "none";
+                    $("#loginPanel").hide();
                 }
 
-                document.getElementById("toggleForm").addEventListener("click", () => {
+                $("#toggleForm").on("click", function () {
                     isLogin = !isLogin;
-                    document.getElementById("formTitle").innerText = isLogin ? "Login" : "Signup";
-                    document.getElementById("toggleForm").innerText = isLogin
+                    $("#formTitle").text(isLogin ? "Login" : "Signup");
+                    $(this).text(isLogin
                         ? "Don't have an account? Signup"
-                        : "Already have an account? Login";
+                        : "Already have an account? Login"
+                    );
                 });
 
-                document.getElementById("submitBtn").addEventListener("click", async () => {
-                    const username = document.getElementById("username").value;
-                    const password = document.getElementById("password").value;
+                $("#submitBtn").on("click", async function () {
+                    const username = $("#username").val();
+                    const password = $("#password").val();
 
                     const endpoint = isLogin ? "/login" : "/signup";
-                    let res = await fetch(`${API_URL}${endpoint}`, {
+
+                    try {
+                        let res = await fetch(`${API_URL}${endpoint}`, {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({username, password})
+                        });
+
+                        let data = await res.json();
+                        alert(data.message || data.error);
+
+                        if (data.token) {
+                            localStorage.setItem("token", data.token);
+                            localStorage.setItem("username", data.username);
+                            $(".navButton").replaceWith(
+                                `<li class="navItem navBookSlot" style="margin-right: 5rem; background-color: #d90f2a; border-radius: 15px; padding: 1rem; font-weight: bold; color: #fff; cursor:pointer;">Book a Slot</li>`
+                            );
+                            closePanel();
+                        }
+                    } catch {
+                        alert("Error connecting to server.");
+                    }
+                });
+
+                $(document).on("click", ".navBookSlot", function () {
+                    $("#bookingPanel").css("display", "flex");
+                    loadBookings();
+                });
+
+                $("#closeBookingPanel").on("click", function () {
+                    $("#bookingPanel").hide();
+                });
+
+                $("#bookSubmitBtn").on("click", async function () {
+                    const date = $("#bookingDate").val();
+                    const seats = $("#bookingSeats").val();
+                    const token = localStorage.getItem("token");
+
+                    if (!date || !seats) return alert("Please enter date and seats");
+
+                    let res = await fetch(`${API_URL}/book`, {
                         method: "POST",
-                        headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify({username, password})
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + token
+                        },
+                        body: JSON.stringify({date, seats})
                     });
 
                     let data = await res.json();
                     alert(data.message || data.error);
-
-                    if (data.token) {
-                        localStorage.setItem("token", data.token);
-                        localStorage.setItem("username", data.username);
-                        document.querySelector(".navButton").outerHTML =
-                            `<li class="navItem" style="margin-right: 5rem; background-color: #d90f2a; border-radius: 15px; padding: 1rem; font-weight: bold; color: #fff;">Weclome ${data.username}</li>`;
-                        closePanel();
-                    }
+                    loadBookings();
                 });
 
-                // Keep username after refresh
-                window.onload = () => {
+                async function loadBookings() {
+                    const token = localStorage.getItem("token");
+                    let res = await fetch(`${API_URL}/bookings`, {
+                        headers: {"Authorization": "Bearer " + token}
+                    });
+                    let bookings = await res.json();
+
+                    $("#bookingsList").empty();
+                    bookings.forEach(b => {
+                        $("#bookingsList").append(
+                            `<li style="margin-bottom:0.5rem;">
+                            ${b.date} - ${b.seats} seats 
+                            <button onclick="cancelBooking('${b._id}')" style="background:red; color:white; border:none; padding:0.2rem 0.5rem; border-radius:5px;">Cancel</button>
+                            </li>`
+                        );
+                    });
+                }
+
+                async function cancelBooking(id) {
+                    const token = localStorage.getItem("token");
+                    let res = await fetch(`${API_URL}/cancel/${id}`, {
+                        method: "DELETE",
+                        headers: {"Authorization": "Bearer " + token}
+                    });
+                    let data = await res.json();
+                    alert(data.message || data.error);
+                    loadBookings();
+                }
+
+                $(window).on("load", function () {
                     const savedUser = localStorage.getItem("username");
                     if (savedUser) {
-                        document.querySelector(".navButton").outerHTML =
-                            `<li class="navItem" style="margin-right: 5rem; background-color: #d90f2a; border-radius: 15px; padding: 1rem; font-weight: bold; color: #fff">Welcome, ${savedUser}</li>`;
+                        $(".navButton").replaceWith(
+                            `<li class="navItem navBookSlot" style="margin-right: 5rem; background-color: #d90f2a; border-radius: 15px; padding: 1rem; font-weight: bold; color: #fff; cursor:pointer;">Book a Slot</li>`
+                        );
                     }
-                };
+                });
             </script>
 </body>
 

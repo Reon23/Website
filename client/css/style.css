@@ -89,6 +89,84 @@ nav {
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
+.booking-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.booking-modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px; /* rounded like login panel */
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    max-width: 90%;
+    animation: fadeIn 0.3s ease;
+}
+
+.booking-modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+.booking-modal input,
+.booking-modal select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.booking-modal input:focus,
+.booking-modal select:focus {
+    border-color: #007bff;
+}
+
+.booking-modal button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #007bff; /* match login button */
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.booking-modal button:hover {
+    background: #0056b3;
+}
+
+.booking-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 .hero {
     margin-top: 8vh;
     padding: 6rem;
