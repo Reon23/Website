@@ -65,6 +65,30 @@ nav {
     background-color: #a31528;
 }
 
+.loginPanel {
+    position: fixed; /* makes it float above page */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+    display: none; /* hidden by default */
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+    z-index: 2000; /* above nav */
+}
+
+.loginSection {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
 .hero {
     margin-top: 8vh;
     padding: 6rem;
